@@ -43,12 +43,23 @@ def valid():
         and fair == thisdict["fair"][0]
     ):
         while True:
-            location()
-            printing()
+            print("---------------------------------------------")
+            print("[1] Student/Senior, [2] Regular")
+            passenger = int(input("Enter passenger: "))
+
+            if passenger == 1:
+                student()
+
+            elif passenger == 2:
+                regular()
+
+            else:
+                print("Error: Input values do not match.")
     else:
         print("Error: Input values do not match.")
-
-def location():
+        
+    # Function for student/senior passenger
+def student():
     # Function for input of 'From' and 'To' locations
     print("---------------------------------------------")
     print("[1] Calumpang, [2] San Juan")
@@ -75,8 +86,7 @@ def location():
     result = fair_value - discount_value
     thisdict["amount"].append(result)
 
-def printing():
-    # Function to print the receipt
+    # For date and time 
     dt = datetime.datetime.now()
 
     print("---------------------------------------------")
@@ -100,9 +110,61 @@ def printing():
     print("Regular: ", thisdict["fair"][0])
     print("Discount: ", thisdict["discount"][0])
     print("Amount: ", thisdict["amount"][0])
+    print("STUDENT/SENIOR")
     print("THIS SERVES AS AN OFFICIAL RECEIPT")
 
+    # Function for regular passenger
+def regular():
+     # Function for input of 'From' and 'To' locations
+    print("---------------------------------------------")
+    print("[1] Calumpang, [2] San Juan")
+    From = int(input("From: "))
+    to = int(input("To: "))
+
+    if From == 1:
+        thisdict["from"][0] = "Calumpang"
+    elif From == 2:
+        thisdict["from"][0] = "San Juan"
+    else:
+        print("Error: Invalid 'From' location.")
+
+    if to == 1:
+        thisdict["to"][0] = "Calumpang"
+    elif to == 2:
+        thisdict["to"][0] = "San Juan"
+    else:
+        print("Error: Invalid 'To' location.")
+
+    # Calculate and store the amount
+    fair_value = thisdict["fair"][0]
+    discount_value = thisdict["discount"][0]
+    result = fair_value - discount_value
+    thisdict["amount"].append(result)
+
+    # For date and time 
+    dt = datetime.datetime.now()
+
+    print("---------------------------------------------")
+    print("Gerald Mini Digital Ticket")
+    print("Serial #: ", thisdict["serial"][0], "Bus Plate #: ", thisdict["bus"][0])
+    print("Driver Name: ", thisdict["driver"][0], "Conductor Name: ", thisdict["conductor"][0])
+    
+    # Increment the 'OR' (Official Receipt) number
+    if thisdict["OR"]:
+        latest_OR = int(thisdict["OR"][-1])
+        next_OR = latest_OR + 1
+    else:
+        next_OR = 1
+
+    thisdict["OR"].append(next_OR)
+    
+    print("OFFICIAL RECEIPT #: ", next_OR)
+    print("Date: ", dt.strftime("%B %d, %Y"))
+    print("From: ", thisdict["from"][0])
+    print("To: ", thisdict["to"][0])
+    print("Regular: ", thisdict["fair"][0])
+    print("Amount: ", thisdict["fair"][0])
+    print("REGULAR")
+    print("THIS SERVES AS AN OFFICIAL RECEIPT")
+    
 valid()
-
-
-
