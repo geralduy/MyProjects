@@ -1,2 +1,2 @@
-Hi I'm GERALD this folder serve as the storage of all project that i accomplished in my all IT journey.
-Have a nice scrool!
+Hi I'm GERALD and this is my art and works in my IT journey.
+Have a nice scroll.
