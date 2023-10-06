@@ -1,1 +1,2 @@
-This is the overall project that i made in my IT journey hoping that i can improve my works in the future.
+Hi I'm GERALD this folder serve as the storage of all project that i accomplished in my all IT journey.
+Have a nice scrool!
